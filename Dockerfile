@@ -23,8 +23,6 @@ RUN npm run build
 FROM node:16-alpine AS runner
 WORKDIR /app
 
-ENV NODE_ENV=production
-
 COPY --chown=node --from=builder /app/next.config.js ./
 COPY --chown=node --from=builder /app/public ./public
 COPY --chown=node --from=builder /app/.next ./.next
